@@ -73,7 +73,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
       let renderer = null;
       let scene = new Scene();
       let skybox = new SkyboxNode({
-        url: 'media/textures/stereo1.jpg',
+        url: 'media/textures/chess-pano-4k.png',
         displayMode: 'stereoTopBottom'
       });
       scene.addNode(skybox);
@@ -237,7 +237,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
         if (currently_selected_box != null) {
           currently_selected_box.selected = true;
           let skybox = new SkyboxNode({
-            url: 'media/textures/chess-pano-4k.png',
+            url: 'media/textures/stereo1.jpg',
             displayMode: 'stereoTopBottom'
           });
           scene.addNode(skybox);
