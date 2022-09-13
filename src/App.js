@@ -12,7 +12,7 @@ function App() {
         <a-assets>
           <img id="right" src="img/stereo1r.jpg"/>
           <img id="test" src="img/test.jpeg"/>
-          <img id="waypoint" src="img/waypoint.png"/>
+          <img id="waypoint" src="img/pinpoint.png"/>
         </a-assets>
         {/* <a-entity camera look-controls position="0 0 0" stereocam="eye:left;"></a-entity>
 
@@ -26,8 +26,8 @@ function App() {
                 >
                 </a-sphere>
         </a-entity>
-        <a-image position="0 0 -10" scale="2 3 1" class="clickable" waypoint src="#waypoint"></a-image>
-        <a-entity oculus-go-controls></a-entity>
+        <a-image position="0 0 -11" scale="2 3 1" class="clickable" waypoint src="#waypoint"></a-image>
+        <a-entity laser-controls="hand: right" raycaster="objects: .clickable; lineColor: red; lineOpacity: 0.5;"></a-entity>
         <a-sky id="sky" src="#right"></a-sky>
         
       </a-scene>
