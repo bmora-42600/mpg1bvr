@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import './App.css';
 import "./components/waypoint/waypoint.js";
 require('aframe-stereo-component');
@@ -5,9 +6,29 @@ require('aframe-look-at-component');
 require('aframe');
 
 function App() {
+
+  useEffect(()=>{
+    document.querySelector('a-scene').addEventListener('loaded', function () {
+      document.getElementById("loading-page").style.visibility = "hidden";
+    })
+  },[])
+
   return (
     <div className="App">
-      <a-scene renderer="antialias: true"
+      <div id="loading-page">
+        ...
+      </div>
+      <div id="web-ui">
+        <img className="location-btn" src={"img/ButtonONE.png"} alt="button one" />
+        <img className="location-btn" src={"img/ButtonONW.png"} alt="button onw" />
+        <img className="location-btn" src={"img/ButtonPNW.png"} alt="button pnw" />
+        <img className="location-btn" src={"img/ButtonPSW.png"} alt="button psw" />
+        <img className="location-btn" src={"img/ButtonPCINT.png"} alt="button pcint" />
+      </div>
+      <div id="web-logos">
+        <img className="logo" src={"img/logos.png"} alt="logos" />
+      </div>
+      <a-scene renderer="antialias: true" loading-screen="enabled:false"
       cursor="rayOrigin: mouse; fuseTimeout: 0;" raycaster="objects: .clickable">
         <a-assets>
           <img id="right" src="img/stereo1r.jpg"/>
@@ -26,7 +47,7 @@ function App() {
                 >
                 </a-sphere>
         </a-entity>
-        <a-image position="0 0 -11" scale="2 3 1" class="clickable" waypoint src="#waypoint"></a-image>
+        <a-image position="0 0 -11" scale="2 2.5 1" class="clickable" waypoint src="#waypoint"></a-image>
         <a-entity laser-controls="hand: right" raycaster="objects: .clickable; lineColor: red; lineOpacity: 0.5;"></a-entity>
         <a-sky id="sky" src="#right"></a-sky>
         

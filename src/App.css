@@ -1,3 +1,7 @@
+body {
+  background-color: #282c34;
+}
+
 .App {
   text-align: center;
   width: 100vw;
@@ -37,4 +41,60 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+#loading-page {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #282c34;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color:#fff;
+  z-index: 101;
+  font-size: 5em;
+}
+
+#web-ui {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  z-index: 100;
+  pointer-events: none;
+}
+
+.location-btn {
+  width: 8vw;
+  margin: 0.1em;
+  pointer-events: all;
+  min-width: 50px;
+}
+
+.location-btn:hover {
+  width: 10vw;
+}
+
+#web-logos {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  z-index: 100;
+  pointer-events: none;
+}
+#web-logos img {
+  width: 30vw;
+  min-width: 20em;
 }
