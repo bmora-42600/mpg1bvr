@@ -11,7 +11,6 @@ function App() {
       cursor="rayOrigin: mouse; fuseTimeout: 0;" raycaster="objects: .clickable">
         <a-assets>
           <img id="right" src="img/stereo1r.jpg"/>
-          <img id="left" src="img/stereo1l.jpg"/>
           <img id="test" src="img/test.jpeg"/>
           <img id="waypoint" src="img/waypoint.png"/>
         </a-assets>
