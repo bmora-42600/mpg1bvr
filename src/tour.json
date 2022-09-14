@@ -3,6 +3,7 @@
         {
             "id":"pano1",
             "src":"img/pano1.jpg",
+            "thumbnail":"img/ButtonONE.png",
             "waypoints":[
                 {
                     "position":[0,0,-10],
@@ -13,6 +14,7 @@
         {
             "id":"pano2",
             "src":"img/pano2.jpg",
+            "thumbnail":"img/ButtonONW.png",
             "waypoints":[
                 {
                     "position":[-10,0,-10],
@@ -23,6 +25,7 @@
         {
             "id":"pano3",
             "src":"img/pano3.jpg",
+            "thumbnail":"img/ButtonPNW.png",
             "waypoints":[
                 {
                     "position":[10,0,-10],
@@ -33,6 +36,7 @@
         {
             "id":"pano4",
             "src":"img/pano4.jpg",
+            "thumbnail":"img/ButtonPSW.png",
             "waypoints":[
                 {
                     "position":[10,0,10],
@@ -43,6 +47,7 @@
         {
             "id":"pano5",
             "src":"img/pano5.jpg",
+            "thumbnail":"img/ButtonPCINT.png",
             "waypoints":[
                 {
                     "position":[0,0,10],
