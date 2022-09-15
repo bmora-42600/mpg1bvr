@@ -4,6 +4,7 @@
             "id":"pano2",
             "src":"img/pano2.jpg",
             "thumbnail":"img/ButtonONW.png",
+            "map":"img/map1.png",
             "waypoints":[
                 {
                     "position":[1,0,-10],
@@ -15,6 +16,7 @@
             "id":"pano3",
             "src":"img/pano3.jpg",
             "thumbnail":"img/ButtonPNW.png",
+            "map":"img/map1.png",
             "waypoints":[
                 {
                     "position":[8,0,-8],
@@ -26,6 +28,7 @@
             "id":"pano4",
             "src":"img/pano4.jpg",
             "thumbnail":"img/ButtonPSW.png",
+            "map":"img/map1.png",
             "waypoints":[
                 {
                     "position":[5,0,-8],
@@ -37,6 +40,7 @@
             "id":"pano6",
             "src":"img/pano1.jpg",
             "thumbnail":"img/ButtonONE.png",
+            "map":"img/map1.png",
             "waypoints":[
                 {
                     "position":[2,0,-10],
@@ -48,6 +52,7 @@
             "id":"pano5",
             "src":"img/pano5.jpg",
             "thumbnail":"img/ButtonPCINT.png",
+            "map":"img/map1.png",
             "waypoints":[
                 {
                     "position":[-5,0,-12],

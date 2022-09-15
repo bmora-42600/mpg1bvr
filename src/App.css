@@ -107,3 +107,11 @@ body {
   width: 30vw;
   min-width: 20em;
 }
+
+#web-map {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 20vw;
+  background-color: #6b6b6b55;
+}

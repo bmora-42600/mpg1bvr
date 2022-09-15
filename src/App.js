@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import './App.css';
 import "./components/waypoint/waypoint.js";
+import "./components/map/map.js";
 import Tour from './tour.json';
 require('aframe-stereo-component');
 require('aframe-look-at-component');
@@ -14,9 +15,14 @@ function App() {
 
   useEffect(()=>{
     window.localStorage.setItem("actualLocation",Tour.locations[0].id)
-    document.querySelector('a-scene').addEventListener('loaded', function () {
-      //setTimeout(()=>document.getElementById("loading-page").style.visibility = "hidden",3000);
-    })
+    document.querySelector('a-scene').addEventListener('enter-vr', function () {
+      var vrMap = document.querySelector("#vr-map")
+      vrMap.setAttribute("visible",true)
+    });
+    document.querySelector('a-scene').addEventListener('exit-vr', function () {
+      var vrMap = document.querySelector("#vr-map")
+      vrMap.setAttribute("visible",false)
+    });
     window.addEventListener("go-to", function(e) {
       GoTo(e.detail.to);
     });
@@ -32,7 +38,7 @@ function App() {
       stepsSound.components.sound.playSound();
       setTimeout(()=>{
         var skybox = document.querySelector("#sky")
-        var actualWaypoints = document.querySelector(`#${Tour.locations.filter(location => location.id === actualLocation)[0].id}`)
+        var actualWaypoints = document.querySelector(`#${actualLocation}`)
         var goToWaypoints = document.querySelector(`#${to}`)
   
         actualWaypoints.setAttribute("visible",false)
@@ -45,6 +51,8 @@ function App() {
           child.classList.add("clickable");
         })
   
+        var vrMap = document.querySelector("#vr-map")
+        vrMap.setAttribute("src", `#map-${to}`);
         skybox.setAttribute("src", `#img-${to}`);
         fadeEl.emit("fadeout")
       },1000)
@@ -66,15 +74,15 @@ function App() {
         <img className="loading" src={"img/loading.gif"} alt="loading" />
       </div>
       <div id="web-ui">
-      {Tour.locations.map((location) => {
-        return <img className={`location-btn ${actualLocation===location.id?"selected":""}`}
-          onClick={() => DispatchGoToEvent(location.id)} 
-          src={location.thumbnail} 
-          alt={`button ${location.id}`} />
-      }
-        
-        )
-      }
+        {Tour.locations.map((location) => {
+          return <img className={`location-btn ${actualLocation===location.id?"selected":""}`}
+            onClick={() => DispatchGoToEvent(location.id)} 
+            src={location.thumbnail} 
+            alt={`button ${location.id}`} />
+            }
+          )
+        }
+        <img id="web-map" src={Tour.locations.filter(location => location.id === actualLocation)[0].map} alt="map" />
       </div>
       <div id="web-logos">
         <img className="logo" src={"img/logos.png"} alt="logos" />
@@ -83,6 +91,7 @@ function App() {
       cursor="rayOrigin: mouse; fuseTimeout: 0;" raycaster="objects: .clickable">
         <a-assets>
           {Tour.locations.map(location => <img id={`img-${location.id}`} src={location.src}/>)}
+          {Tour.locations.map(location => <img id={`map-${location.id}`} src={location.map}/>)}
           <img id="waypoint" src="img/pinpoint.png"/>
         </a-assets>
 
@@ -107,6 +116,17 @@ function App() {
             )}
           </a-entity>
         })}
+
+        <a-entity map position="2 0 0">
+          <a-image
+            id="vr-map"
+            visible="false" 
+            position="0 -1.25 0"
+            rotation="-30 0 0"
+            scale="1.8 1 1"
+            src={`#map-${actualLocation}`}>
+          </a-image>
+        </a-entity>
         
         <a-entity laser-controls="hand: right" raycaster="objects: .clickable; lineColor: red; lineOpacity: 0.5;"></a-entity>
         <a-sky id="sky" src={`#img-${Tour.locations[0].id}`}></a-sky>
