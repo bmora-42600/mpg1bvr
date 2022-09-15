@@ -53,13 +53,12 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 101;
   font-size: 2em;
   flex-direction: column;
 }
 
-#loading-page img {
-  width: 50vw;
+.loading {
+  width: 20vw !important;
 }
 
 #web-ui {

@@ -1,23 +1,12 @@
 {
     "locations":[
         {
-            "id":"pano1",
-            "src":"img/pano1.jpg",
-            "thumbnail":"img/ButtonONE.png",
-            "waypoints":[
-                {
-                    "position":[0,0,-10],
-                    "to":"pano2"
-                }
-            ]
-        },
-        {
             "id":"pano2",
             "src":"img/pano2.jpg",
             "thumbnail":"img/ButtonONW.png",
             "waypoints":[
                 {
-                    "position":[-10,0,-10],
+                    "position":[1,0,-10],
                     "to":"pano3"
                 }
             ]
@@ -28,7 +17,7 @@
             "thumbnail":"img/ButtonPNW.png",
             "waypoints":[
                 {
-                    "position":[10,0,-10],
+                    "position":[8,0,-8],
                     "to":"pano4"
                 }
             ]
@@ -39,7 +28,18 @@
             "thumbnail":"img/ButtonPSW.png",
             "waypoints":[
                 {
-                    "position":[10,0,10],
+                    "position":[5,0,-8],
+                    "to":"pano6"
+                }
+            ]
+        },
+        {
+            "id":"pano6",
+            "src":"img/pano1.jpg",
+            "thumbnail":"img/ButtonONE.png",
+            "waypoints":[
+                {
+                    "position":[2,0,-10],
                     "to":"pano5"
                 }
             ]
@@ -50,8 +50,8 @@
             "thumbnail":"img/ButtonPCINT.png",
             "waypoints":[
                 {
-                    "position":[0,0,10],
-                    "to":"pano1"
+                    "position":[-5,0,-12],
+                    "to":"pano2"
                 }
             ]
         }

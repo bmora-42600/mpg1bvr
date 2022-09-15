@@ -15,36 +15,42 @@ function App() {
   useEffect(()=>{
     window.localStorage.setItem("actualLocation",Tour.locations[0].id)
     document.querySelector('a-scene').addEventListener('loaded', function () {
-      setTimeout(()=>document.getElementById("loading-page").style.visibility = "hidden",3000);
+      //setTimeout(()=>document.getElementById("loading-page").style.visibility = "hidden",3000);
     })
     window.addEventListener("go-to", function(e) {
       GoTo(e.detail.to);
-  });
+    });
   },[])
 
   const GoTo = (to) => {
     let actualLocation = window.localStorage.getItem("actualLocation");
-    var fadeEl = document.querySelector("#fade")
-    fadeEl.emit("fadein");
-    let stepsSound = document.getElementById("steps-sound");
-    stepsSound.components.sound.playSound();
-    setTimeout(()=>{
-      var skybox = document.querySelector("#sky")
-      var actualWaypoints = document.querySelector(`#${Tour.locations.filter(location => location.id === actualLocation)[0].id}`)
-      var goToWaypoints = document.querySelector(`#${to}`)
-      actualWaypoints.setAttribute("visible",false)
-      actualWaypoints.childNodes.forEach(child => {
-        child.classList.remove("clickable");
-      })
-      goToWaypoints.setAttribute("visible",true)
-      goToWaypoints.childNodes.forEach(child => {
-        child.classList.add("clickable");
-      })
-      skybox.setAttribute("src", `#img-${to}`);
-      fadeEl.emit("fadeout")
-    },1000)
-    setActualLocation(to);
-    window.localStorage.setItem("actualLocation",to)
+
+    if(actualLocation !== to){
+      var fadeEl = document.querySelector("#fade")
+      fadeEl.emit("fadein");
+      let stepsSound = document.getElementById("steps-sound");
+      stepsSound.components.sound.playSound();
+      setTimeout(()=>{
+        var skybox = document.querySelector("#sky")
+        var actualWaypoints = document.querySelector(`#${Tour.locations.filter(location => location.id === actualLocation)[0].id}`)
+        var goToWaypoints = document.querySelector(`#${to}`)
+  
+        actualWaypoints.setAttribute("visible",false)
+        actualWaypoints.childNodes.forEach(child => {
+          child.classList.remove("clickable");
+        })
+  
+        goToWaypoints.setAttribute("visible",true)
+        goToWaypoints.childNodes.forEach(child => {
+          child.classList.add("clickable");
+        })
+  
+        skybox.setAttribute("src", `#img-${to}`);
+        fadeEl.emit("fadeout")
+      },1000)
+      setActualLocation(to);
+      window.localStorage.setItem("actualLocation",to)
+    }
   }
 
   const DispatchGoToEvent = to => {
@@ -57,7 +63,7 @@ function App() {
   return (
     <div className="App">
       <div id="loading-page">
-        <img className="logo" src={"img/logos.png"} alt="logos" />
+        <img className="loading" src={"img/loading.gif"} alt="loading" />
       </div>
       <div id="web-ui">
       {Tour.locations.map((location) => {
@@ -105,8 +111,8 @@ function App() {
         <a-entity laser-controls="hand: right" raycaster="objects: .clickable; lineColor: red; lineOpacity: 0.5;"></a-entity>
         <a-sky id="sky" src={`#img-${Tour.locations[0].id}`}></a-sky>
 
-        <a-sound id="ambient-sound" src="src: url(sound/ambient.mp3)" loop="true" autoplay="true"></a-sound>
-        <a-sound id="steps-sound" src="src: url(sound/steps.mp3)"></a-sound>
+        <a-sound id="ambient-sound" src="src: url(sound/ambient2.mp3)" loop="true" autoplay="true"></a-sound>
+        <a-sound id="steps-sound" src="src: url(sound/pop.mp3)"></a-sound>
         
       </a-scene>
     </div>
