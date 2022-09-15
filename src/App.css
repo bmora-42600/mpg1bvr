@@ -75,7 +75,7 @@ body {
 }
 
 .location-btn {
-  width: 8vw;
+  width: 10vw;
   margin: 0.1em;
   pointer-events: all;
   min-width: 50px;
@@ -87,7 +87,7 @@ body {
 }
 
 .location-btn:hover {
-  width: 10vw;
+  width: 12vw;
   opacity: 0.8 !important;
 }
 
@@ -112,6 +112,8 @@ body {
   position: absolute;
   bottom: 0;
   right: 0;
-  width: 20vw;
+  width: 10vw;
   background-color: #6b6b6b55;
+  margin-right: 0.1em;
+  min-width: 50px;
 }

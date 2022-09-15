@@ -131,7 +131,7 @@ function App() {
             visible="false" 
             position="0 -1.25 0"
             rotation="-30 0 0"
-            scale="1.8 1 1"
+            scale="1 1 1"
             src={`#map-${actualLocation}`}>
           </a-image>
         </a-entity>
