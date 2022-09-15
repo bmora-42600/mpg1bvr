@@ -129,7 +129,7 @@ function App() {
           <a-image
             id="vr-map"
             visible="false" 
-            position="0 0 0"
+            position="0 -0.8 0"
             rotation="-30 0 0"
             scale="1 1 1"
             src={`#map-${actualLocation}`}>
