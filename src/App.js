@@ -125,11 +125,11 @@ function App() {
           </a-entity>
         })}
 
-        <a-entity map position="2 0 0">
+        <a-entity map position="5 0 0">
           <a-image
             id="vr-map"
             visible="false" 
-            position="0 -1.25 0"
+            position="0 0 0"
             rotation="-30 0 0"
             scale="1 1 1"
             src={`#map-${actualLocation}`}>

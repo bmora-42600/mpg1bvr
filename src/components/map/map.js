@@ -10,6 +10,6 @@ AFRAME.registerComponent("map", {
         var direction = new window.THREE.Vector3();
         this.el.sceneEl.camera.getWorldDirection(direction);
         direction.y = 0;
-        position.lerp(direction.multiplyScalar(2),0.01);
+        position.lerp(direction.multiplyScalar(4),0.01);
     }
 })
