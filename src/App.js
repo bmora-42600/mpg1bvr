@@ -3,10 +3,10 @@ import './App.css';
 import "./components/waypoint/waypoint.js";
 import "./components/map/map.js";
 import Tour from './tour.json';
+import { Helmet } from "react-helmet";
 require('aframe-stereo-component');
 require('aframe-look-at-component');
 require('aframe');
-
 
 
 function App() {
@@ -70,6 +70,14 @@ function App() {
 
   return (
     <div className="App">
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>mpg1bvr</title>
+        <meta
+          name="description"
+          content="Learn design and code by building real apps with React and Swift. Complete courses about UI design, web and iOS development using Figma, CSS, React Hooks and SwiftUI."
+        />
+      </Helmet>
       <div id="loading-page">
         <img className="loading" src={"img/loading.gif"} alt="loading" />
       </div>
